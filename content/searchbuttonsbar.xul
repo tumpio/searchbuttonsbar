@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="chrome://searchbuttonsbar/skin/searchbuttonsbar.css" ?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://searchbuttonsbar/locale/searchbuttonsbar.dtd">
+
+<overlay id="searchbuttonsbar-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript" src="chrome://searchbuttonsbar/content/searchbuttonsbar.js"/>
+    <toolbox id="navigator-toolbox">
+        <toolbar
+            id="SearchButtonsBar"
+            toolbarname="&searchbuttonsbar.toolbar.name;"
+            accesskey="&searchbuttonsbar.toolbar.accesskey;"
+            class="chromeclass-toolbar"
+            context="toolbar-context-menu"
+            currentset="search-container,searchbuttonsbar-engines-container"
+            defaultset="search-container,searchbuttonsbar-engines-container"
+            customizable="true"
+            hidden="false"
+            persist="hidden">
+            <toolbaritem id="searchbuttonsbar-engines-container" flex="1000" removable="true"/>
+        </toolbar>
+    </toolbox>
+</overlay>

@@ -1,0 +1,4 @@
+.searchbuttonsbar-splitter:first-child,
+.searchbuttonsbar-splitter:last-child {
+  display: none;
+}
