@@ -29,7 +29,7 @@ var SearchButtonsBar = {
         let submission = engine.getSubmission(searchQuery);
         let inBackground = SearchButtonsBar.prefs.getBoolPref("loadInBackground");
         if (typeof inNewTab === "undefined") {
-            let inNewTab = SearchButtonsBar.prefs.getBoolPref("openInNewTab");
+            inNewTab = SearchButtonsBar.prefs.getBoolPref("openInNewTab");
         }
         openLinkIn(submission.uri.spec,
             inNewTab ? "tab" : "current", {
@@ -62,7 +62,10 @@ var SearchButtonsBar = {
                 SearchButtonsBar.submitSearch(e, true);
             }
         };
-        for (let engine of SearchButtonsBar.searchService.getEngines()) {
+        let searchEngines = SearchButtonsBar.searchService.getEngines();
+        for (let engine of searchEngines) {
+            if (engine.hidden)
+                continue;
             let engineButton = document.createElement("toolbarbutton");
             engineButton.setAttribute("label", engine.name);
             engineButton.setAttribute("accesskey", engine.name[0]);
