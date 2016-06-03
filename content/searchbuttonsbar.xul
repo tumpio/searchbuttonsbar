@@ -16,6 +16,7 @@
             currentset="search-container,searchbuttonsbar-engines-container"
             defaultset="search-container,searchbuttonsbar-engines-container"
             customizable="true"
+            mode="icons"
             hidden="false"
             persist="hidden">
             <toolbaritem id="searchbuttonsbar-engines-container" flex="1000" removable="true"/>
