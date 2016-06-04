@@ -1,5 +1,6 @@
 content   searchbuttonsbar                content/
 skin      searchbuttonsbar  classic/1.0   skin/
 locale    searchbuttonsbar  en-US         locale/en-US/
+locale    searchbuttonsbar  fi            locale/fi/
 
 overlay chrome://browser/content/browser.xul  chrome://searchbuttonsbar/content/searchbuttonsbar.xul

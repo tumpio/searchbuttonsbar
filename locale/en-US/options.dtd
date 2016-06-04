@@ -1,0 +1,9 @@
+<!ENTITY title "Search Buttons Bar Options">
+<!ENTITY searchbuttons.caption "Search Buttons Settings">
+<!ENTITY pref.mode.label "Show:">
+<!ENTITY pref.mode.full "Icons and text">
+<!ENTITY pref.mode.icons "Icons">
+<!ENTITY pref.mode.text "Text">
+<!ENTITY pref.openInNewTab "Open search in new tab">
+<!ENTITY pref.loadInBackground "Open new tab in background">
+<!ENTITY pref.nextToCurrent "Open new tab next to the current tab">

@@ -22,21 +22,37 @@ var SearchButtonsBar = {
     prefs: Components.classes["@mozilla.org/preferences-service;1"]
         .getService(Components.interfaces.nsIPrefService).getBranch("extensions.searchbuttonsbar."),
 
-    submitSearch: function(event, inNewTab) {
+    submitSearch: function(event, forceInNewTab) {
         let engineName = event.target.getAttribute("label");
         let engine = SearchButtonsBar.searchService.getEngineByName(engineName);
         let searchQuery = document.getElementById("searchbar").value;
         let submission = engine.getSubmission(searchQuery);
+        let inNewTab = SearchButtonsBar.prefs.getBoolPref("openInNewTab");
         let inBackground = SearchButtonsBar.prefs.getBoolPref("loadInBackground");
-        if (typeof inNewTab === "undefined") {
-            inNewTab = SearchButtonsBar.prefs.getBoolPref("openInNewTab");
+        let nextToCurrent = SearchButtonsBar.prefs.getBoolPref("nextToCurrent");
+        let tabsInsertRelated = Services.prefs.getBoolPref("browser.tabs.insertRelatedAfterCurrent");
+        let changedRelatedPref = false;
+
+        if (typeof forceInNewTab === "boolean") {
+            inNewTab = forceInNewTab;
         }
+
+        if (nextToCurrent && !tabsInsertRelated) {
+            Services.prefs.setBoolPref("browser.tabs.insertRelatedAfterCurrent", true);
+            changedRelatedPref = true;
+        }
+
         openLinkIn(submission.uri.spec,
             inNewTab ? "tab" : "current", {
                 postData: submission.postData,
                 inBackground: inBackground,
-                relatedToCurrent: true
-            });
+                relatedToCurrent: nextToCurrent
+            }
+        );
+
+        if (changedRelatedPref) {
+            Services.prefs.setBoolPref("browser.tabs.insertRelatedAfterCurrent", false);
+        }
     },
 
     onFirstRun: function() {
@@ -53,16 +69,18 @@ var SearchButtonsBar = {
 
     updateSearchEngines: function() {
         let enginesContainer = document.getElementById("searchbuttonsbar-engines-container");
-        // Clear search engines container
-        for (let i = enginesContainer.childNodes.length; i > 0; i--) {
-            enginesContainer.removeChild(enginesContainer.childNodes[0]);
-        }
+        let searchEngines = SearchButtonsBar.searchService.getEngines();
+        let displayMode = SearchButtonsBar.prefs.getCharPref("mode");
         let onMiddleClick = function(e) {
             if (e.button === 1) {
                 SearchButtonsBar.submitSearch(e, true);
             }
         };
-        let searchEngines = SearchButtonsBar.searchService.getEngines();
+
+        // Clear search engines container
+        for (let i = enginesContainer.childNodes.length; i > 0; i--) {
+            enginesContainer.removeChild(enginesContainer.childNodes[0]);
+        }
         for (let engine of searchEngines) {
             if (engine.hidden)
                 continue;
@@ -75,11 +93,25 @@ var SearchButtonsBar = {
             engineButton.setAttribute("image", engine.iconURI.scheme + ":" + engine.iconURI.path);
             enginesContainer.appendChild(engineButton);
         }
+
+        // set buttons display mode
+        enginesContainer.setAttribute("mode", displayMode);
+
+        // set listener for display mode preference
+        let _prefService = Components.classes["@mozilla.org/preferences-service;1"]
+            .getService(Components.interfaces.nsIPrefBranch2);
+        _prefService.addObserver("extensions.searchbuttonsbar.mode", {
+            observe: function(aSubject, aTopic, aData) {
+                let newDisplayMode = Services.prefs.getCharPref(aData);
+                enginesContainer.setAttribute("mode", newDisplayMode);
+            }
+        }, false);
     },
 
     makeSearchContainerResizable: function() {
         let searchbuttonsbar = document.getElementById("SearchButtonsBar");
         let searchContainer = searchbuttonsbar.querySelector("#search-container");
+        let searchbar = document.getElementById("searchbar");
         if (searchContainer === null)
             return;
         let createSplitter = function() {
@@ -105,6 +137,17 @@ var SearchButtonsBar = {
         }
         // restore resized width
         searchContainer.width = SearchButtonsBar.prefs.getIntPref("search-container-width");
+        // add options menuitem
+        let menuitem = window.document.createElement("menuitem");
+        menuitem.setAttribute("class", "open-engine-manager");
+        menuitem.setAttribute("id", "searchbuttonsbaroptions-menuitem");
+        let stringBundle = document.getElementById("searchbuttonsbar-stringbundle");
+        menuitem.setAttribute("label", stringBundle.getString("options.label"));
+        menuitem.addEventListener("command", function() {
+            openDialog("chrome://searchbuttonsbar/content/options.xul",
+                "_blank", "chrome,dialog,modal,centerscreen,resizable");
+        });
+        searchbar._popup.appendChild(menuitem);
     },
 
     init: function() {

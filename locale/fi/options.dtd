@@ -1,0 +1,9 @@
+<!ENTITY title "Hakutyökalupalkin asetukset">
+<!ENTITY searchbuttons.caption "Hakupainikkeiden asetukset">
+<!ENTITY pref.mode.label "Näytä:">
+<!ENTITY pref.mode.full "Kuvakkeet ja teksti">
+<!ENTITY pref.mode.icons "Kuvakkeet">
+<!ENTITY pref.mode.text "Teksti">
+<!ENTITY pref.openInNewTab "Avaa haku uuteen välilehteen">
+<!ENTITY pref.loadInBackground "Avaa uudet välilehdet taustalle">
+<!ENTITY pref.nextToCurrent "Avaa uudet välilehdet nykyisen rinnalle">

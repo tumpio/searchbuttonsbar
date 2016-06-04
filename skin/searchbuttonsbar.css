@@ -1,12 +1,31 @@
-.searchbuttonsbar-splitter:first-child,
-.searchbuttonsbar-splitter:last-child {
-  display: none;
+.searchbuttonsbar-splitter:first-child, .searchbuttonsbar-splitter:last-child {
+    display: none;
 }
-
 .searchbuttonsbar-splitter {
-  opacity: 0;
+    opacity: 0;
 }
-
 #SearchButtonsBar .searchbar-textbox {
     -moz-appearance: textfield;
+}
+/* Display modes */
+/* Icons */
+#searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-text {
+    display: none;
+}
+#searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-icon {
+    display: inherit;
+}
+/* Text */
+#searchbuttonsbar-engines-container[mode="text"] > toolbarbutton > .toolbarbutton-text {
+    display: inherit;
+}
+#searchbuttonsbar-engines-container[mode="text"] > toolbarbutton > .toolbarbutton-icon {
+    display: none;
+}
+/* Full */
+#searchbuttonsbar-engines-container[mode="full"] > toolbarbutton > .toolbarbutton-text {
+    display: inherit;
+}
+#searchbuttonsbar-engines-container[mode="full"] > toolbarbutton > .toolbarbutton-icon {
+    display: inherit;
 }

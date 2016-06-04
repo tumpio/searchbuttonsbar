@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/css" href="chrome://searchbuttonsbar/skin/searchbuttonsbar.css" ?>
 
-<!DOCTYPE overlay SYSTEM
-  "chrome://searchbuttonsbar/locale/searchbuttonsbar.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://searchbuttonsbar/locale/searchbuttonsbar.dtd">
 
 <overlay id="searchbuttonsbar-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script type="application/x-javascript" src="chrome://searchbuttonsbar/content/searchbuttonsbar.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="searchbuttonsbar-stringbundle" src="chrome://searchbuttonsbar/locale/strings.properties"/>
+    </stringbundleset>
+
     <toolbox id="navigator-toolbox">
         <toolbar
             id="SearchButtonsBar"
