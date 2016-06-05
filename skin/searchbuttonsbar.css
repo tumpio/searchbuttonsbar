@@ -7,6 +7,11 @@
 #SearchButtonsBar .searchbar-textbox {
     -moz-appearance: textfield;
 }
+#SearchButtonsBar .toolbarbutton-icon {
+    max-height: 18px;
+    height: 100%;
+    width: auto;
+}
 /* Display modes */
 /* Icons */
 #searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-text {

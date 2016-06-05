@@ -7,3 +7,12 @@
 #engineChildren::-moz-tree-cell(engineShow) {
   border-left: 1px solid -moz-dialog;
 }
+#engineChildren::-moz-tree {
+  max-height: 16px;
+}
+#engineChildren::-moz-tree-image(engineName) {
+  margin-inline-end: 10px;
+  margin-inline-start: 1px;
+  width: 16px;
+  height: 16px;
+}

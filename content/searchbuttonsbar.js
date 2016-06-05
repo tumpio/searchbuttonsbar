@@ -152,7 +152,9 @@ var SearchButtonsBar = {
             openDialog("chrome://searchbuttonsbar/content/options.xul",
                 "_blank", "chrome,dialog,modal,centerscreen,resizable");
         });
-        searchbar._popup.appendChild(menuitem);
+        if (searchbar._popup) {
+            searchbar._popup.appendChild(menuitem);
+        }
     },
 
     init: function() {
@@ -231,4 +233,7 @@ gObserver.prototype = {
     }
 };
 
-window.addEventListener("load", SearchButtonsBar.init, true);
+window.addEventListener("load", function load(event) {
+    window.removeEventListener("load", load, false); //remove listener, no longer needed
+    SearchButtonsBar.init();
+}, false);
