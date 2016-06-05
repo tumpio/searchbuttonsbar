@@ -7,3 +7,6 @@
 <!ENTITY pref.openInNewTab "Avaa haku uuteen välilehteen">
 <!ENTITY pref.loadInBackground "Avaa uudet välilehdet taustalle">
 <!ENTITY pref.nextToCurrent "Avaa uudet välilehdet nykyisen rinnalle">
+<!ENTITY pref.hide.caption "Näytettävät hakupainikkeet">
+<!ENTITY engine.name "Hakupainike">
+<!ENTITY engine.show "Näytä">

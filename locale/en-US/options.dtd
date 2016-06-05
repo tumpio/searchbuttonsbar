@@ -7,3 +7,6 @@
 <!ENTITY pref.openInNewTab "Open search in new tab">
 <!ENTITY pref.loadInBackground "Open new tab in background">
 <!ENTITY pref.nextToCurrent "Open new tab next to the current tab">
+<!ENTITY pref.hide.caption "Select Search Buttons">
+<!ENTITY engine.name "Search Button">
+<!ENTITY engine.show "Show">

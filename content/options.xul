@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/global.css"?>
+<?xml-stylesheet type="text/css" href="chrome://searchbuttonsbar/skin/options.css" ?>
 <!DOCTYPE overlay SYSTEM "chrome://searchbuttonsbar/locale/options.dtd">
 
 <prefwindow id="searchbuttonsbar-prefs" title="&title;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript" src="chrome://searchbuttonsbar/content/options.js"/>
 
     <prefpane id="pref-pane" label="&title;">
         <preferences>
@@ -27,6 +29,17 @@
             <checkbox label="&pref.openInNewTab;" preference="pref-openInNewTab"/>
             <checkbox label="&pref.loadInBackground;" preference="pref-loadInBackground"/>
             <checkbox label="&pref.nextToCurrent;" preference="pref-nextToCurrent"/>
+        </groupbox>
+        <groupbox>
+            <caption label="&pref.hide.caption;"/>
+            <tree id="enginesTree" rows="7" hidecolumnpicker="true"
+                seltype="text" editable="true">
+                <treechildren id="engineChildren"/>
+                <treecols>
+                    <treecol id="engineName" flex="4" label="&engine.name;"/>
+                    <treecol id="engineShow" label="&engine.show;" type="checkbox" editable="true"/>
+                </treecols>
+            </tree>
         </groupbox>
     </prefpane>
 

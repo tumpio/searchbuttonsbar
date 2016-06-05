@@ -69,7 +69,11 @@ var SearchButtonsBar = {
 
     updateSearchEngines: function() {
         let enginesContainer = document.getElementById("searchbuttonsbar-engines-container");
-        let searchEngines = SearchButtonsBar.searchService.getEngines();
+        let searchEngines = SearchButtonsBar.searchService.getVisibleEngines();
+        let hiddenEngines = SearchButtonsBar.prefs.getCharPref("hidden").split(",").reduce(function(map, engine) {
+            map[engine] = true;
+            return map;
+        }, {});
         let displayMode = SearchButtonsBar.prefs.getCharPref("mode");
         let onMiddleClick = function(e) {
             if (e.button === 1) {
@@ -82,15 +86,16 @@ var SearchButtonsBar = {
             enginesContainer.removeChild(enginesContainer.childNodes[0]);
         }
         for (let engine of searchEngines) {
-            if (engine.hidden)
+            if (hiddenEngines[engine.name]) {
                 continue;
+            }
             let engineButton = document.createElement("toolbarbutton");
             engineButton.setAttribute("label", engine.name);
             engineButton.setAttribute("accesskey", engine.name[0]);
             engineButton.setAttribute("tooltiptext", engine.description);
             engineButton.addEventListener("command", SearchButtonsBar.submitSearch);
             engineButton.addEventListener("click", onMiddleClick);
-            engineButton.setAttribute("image", engine.iconURI.scheme + ":" + engine.iconURI.path);
+            engineButton.setAttribute("image", engine.iconURI.spec);
             enginesContainer.appendChild(engineButton);
         }
 
@@ -169,6 +174,14 @@ var SearchButtonsBar = {
                 }
             }
         }, "browser-search-engine-modified", false);
+        // Add observer for searchbuttonsbar-modified topic
+        Services.obs.addObserver({
+            observe: function(aSubject, aTopic, aData) {
+                if (aTopic == "searchbuttonsbar-modified") {
+                    SearchButtonsBar.updateSearchEngines();
+                }
+            }
+        }, "searchbuttonsbar-modified", false);
 
         // Re-do search container init on toolbar customization
         window.addEventListener("aftercustomization", SearchButtonsBar.makeSearchContainerResizable);
