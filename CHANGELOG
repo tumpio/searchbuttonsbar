@@ -1,7 +1,10 @@
-Search Buttons Bar v1.0.2 (released 2016-06-03)
+Search Buttons Bar v1.1 (released 2016-06-06)
+- Add basic options.
+- Add option to select search buttons to show.
+- Add icon for the addon.
+- Fix issues with latest Firefox.
 - Fix styling issue of search bar text field with Windows High Contrast theme.
-- Change search bar resizing splitters transparent.
-Search Buttons Bar v1.0.1 (released 2016-06-02)
+- Fix search bar resizing splitters visibility.
 - Fix open in new tab option.
 - Fix removing of default search engines.
 Search Buttons Bar v1.0 (released 2016-06-01)
