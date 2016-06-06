@@ -7,9 +7,9 @@
         <em:name>Search Buttons Bar</em:name>
         <em:description>A search engine toolbar with one-click search.</em:description>
         <em:version>1.1</em:version>
-        <em:creator>jumba</em:creator>
+        <em:creator>tumpio</em:creator>
         <em:translator></em:translator>
-        <em:homepageURL>https://forum.palemoon.org/viewtopic.php?f=50&amp;t=12159</em:homepageURL>
+        <em:homepageURL>https://github.com/tumpio/searchbuttonsbar</em:homepageURL>
         <em:optionsURL>chrome://searchbuttonsbar/content/options.xul</em:optionsURL>
         <em:optionsType>1</em:optionsType>
         <em:type>2</em:type>
