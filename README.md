@@ -8,11 +8,6 @@ A XUL addon for Firefox and Pale Moon browsers.
 - The search toolbar is customizable which allows to add and remove toolbar items.
 - Option to select which engines are displayed in the toolbar.
 
-This add-on was requested by the Pale Moon community.
-
-## TODO:
-- Option to select which engines are displayed in the toolbar.
-
 ## Notes
 If you like my work, please consider to contribute. Thank you!
 
