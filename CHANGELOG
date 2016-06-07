@@ -1,3 +1,6 @@
+Search Buttons Bar v1.1.1 (released 2016-06-07)
+- Fix search bar initialization on addon first run with defaultset.
+- Fix search bar restoring on addon uninstall with defaultset.
 Search Buttons Bar v1.1 (released 2016-06-06)
 - Add basic options.
 - Add option to select search buttons to show.
