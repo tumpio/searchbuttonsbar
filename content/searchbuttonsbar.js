@@ -59,7 +59,12 @@ var SearchButtonsBar = {
         /* Move search bar to the toolbar when adddon is installed/enabled */
         let searchbuttonsbar = document.getElementById("SearchButtonsBar");
         let searchContainer = document.getElementById("search-container");
-        let oldCurrentset = searchContainer.parentNode.getAttribute("currentset");
+        let oldCurrentset;
+        if (searchContainer.parentNode.hasAttribute("currentset")) {
+            oldCurrentset = searchContainer.parentNode.getAttribute("currentset");
+        } else {
+            oldCurrentset = searchContainer.parentNode.getAttribute("defaultset");
+        }
         searchContainer.parentNode.setAttribute("currentset", oldCurrentset.replace(/search-container,?/g, ""));
         searchbuttonsbar.setAttribute("currentset", "search-container,searchbuttonsbar-engines-container");
         searchbuttonsbar.parentNode.ownerDocument.persist(searchContainer.parentNode.id, "currentset");
@@ -189,16 +194,18 @@ var SearchButtonsBar = {
         window.addEventListener("aftercustomization", SearchButtonsBar.makeSearchContainerResizable);
 
         // Remove addon prefs and restore search container position on uninstall
-        let uninstallObserver = new gObserver("quit-application", function(subject, topic, data) {
+        let uninstallObserver = new Observer("quit-application", function(subject, topic, data) {
             // delete prefs
             let prefs = Components.classes["@mozilla.org/preferences-service;1"]
                 .getService(Components.interfaces.nsIPrefService);
             prefs.deleteBranch("extensions.searchbuttonsbar.");
             // restore search bar position
             let navbar = document.getElementById("nav-bar");
-            let currentset = navbar.getAttribute("currentset");
-            navbar.setAttribute("currentset", currentset.replace(/urlbar-container/, "urlbar-container,search-container"));
-            navbar.parentNode.ownerDocument.persist(navbar.id, "currentset");
+            if (!navbar.querySelector("#search-container")) {
+                let currentset = navbar.getAttribute("currentset");
+                navbar.setAttribute("currentset", currentset.replace(/urlbar-container/, "urlbar-container,search-container"));
+                navbar.parentNode.ownerDocument.persist(navbar.id, "currentset");
+            }
         });
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
         AddonManager.addAddonListener({
@@ -216,11 +223,11 @@ var SearchButtonsBar = {
     }
 };
 
-var gObserver = function(topic, callback) {
+var Observer = function(topic, callback) {
     this.topic = topic;
     this.observe = callback;
 };
-gObserver.prototype = {
+Observer.prototype = {
     register: function() {
         var observerService = Components.classes["@mozilla.org/observer-service;1"]
             .getService(Components.interfaces.nsIObserverService);
