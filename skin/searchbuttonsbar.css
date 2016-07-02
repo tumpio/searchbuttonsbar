@@ -13,6 +13,12 @@
     height: 100%;
     width: auto;
 }
+
+/* Limit max text lenght */
+#searchbuttonsbar-engines-container toolbarbutton {
+    max-width: 14em;
+}
+
 /* Display modes */
 /* Icons */
 #searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-text {
