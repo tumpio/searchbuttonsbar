@@ -56,20 +56,35 @@ var SearchButtonsBar = {
     },
 
     onFirstRun: function() {
-        /* Move search bar to the toolbar when adddon is installed/enabled */
-        let searchbuttonsbar = document.getElementById("SearchButtonsBar");
-        let searchContainer = document.getElementById("search-container");
-        let oldCurrentset;
-        if (searchContainer.parentNode.hasAttribute("currentset")) {
-            oldCurrentset = searchContainer.parentNode.getAttribute("currentset");
-        } else {
-            oldCurrentset = searchContainer.parentNode.getAttribute("defaultset");
+        /* Move search bar to the toolbar when adddon is installed */
+        try {
+            // Use CustomizableUI if it exists
+            Components.utils.import("resource:///modules/CustomizableUI.jsm");
+            CustomizableUI.addWidgetToArea("search-container", "SearchButtonsBar", 0);
         }
-        searchContainer.parentNode.setAttribute("currentset", oldCurrentset.replace(/search-container,?/g, ""));
-        searchbuttonsbar.setAttribute("currentset", "search-container,searchbuttonsbar-engines-container");
-        searchbuttonsbar.parentNode.ownerDocument.persist(searchContainer.parentNode.id, "currentset");
-        searchbuttonsbar.insertBefore(searchContainer, searchbuttonsbar.firstChild);
-        searchbuttonsbar.parentNode.ownerDocument.persist(searchbuttonsbar.id, "currentset");
+        catch(err) {
+            // Otherwise fallback to manual method
+            let searchbuttonsbar = document.getElementById("SearchButtonsBar");
+            let searchContainer = document.getElementById("search-container");
+
+            // Get the toolbar parent
+            let findParentByType = function (element, tag) {
+                let parent = element.parentNode;
+                if(!parent) return undefined;
+                return (parent.localName == tag ? parent : findParentByType(parent, tag));
+            };
+            let oldParent = findParentByType(searchContainer, "toolbar");
+
+            if (oldParent.hasAttribute("currentset")) {
+                oldParent.setAttribute("currentset", oldParent.getAttribute("currentset").replace(/search-container,?/g, ""));
+            } else {
+                oldParent.setAttribute("currentset", oldParent.getAttribute("defaultset").replace(/search-container,?/g, ""));
+            }
+            oldParent.ownerDocument.persist(oldParent.id, "currentset");
+            searchbuttonsbar.setAttribute("currentset", "search-container,searchbuttonsbar-engines-container");
+            searchbuttonsbar.ownerDocument.persist(searchbuttonsbar.id, "currentset");
+            searchbuttonsbar.insertBefore(searchContainer, searchbuttonsbar.firstChild);
+        }
     },
 
     updateSearchEngines: function() {
