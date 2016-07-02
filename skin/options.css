@@ -2,7 +2,7 @@
   list-style-image: url("chrome://searchbuttonsbar/skin/Yes_check.svg");
   height: 14px;
   width: auto;
-  padding-left: 1.2em;
+  padding-left: 20px;
 }
 #engineChildren::-moz-tree-cell(engineShow) {
   border-left: 1px solid -moz-dialog;

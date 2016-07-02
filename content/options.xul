@@ -33,11 +33,11 @@
         <groupbox>
             <caption label="&pref.hide.caption;"/>
             <tree id="enginesTree" rows="7" hidecolumnpicker="true"
-                seltype="text" editable="true">
+                seltype="text" editable="true" width="400px">
                 <treechildren id="engineChildren"/>
                 <treecols>
                     <treecol id="engineName" flex="4" label="&engine.name;"/>
-                    <treecol id="engineShow" label="&engine.show;" type="checkbox" editable="true"/>
+                    <treecol id="engineShow" label="&engine.show;" type="checkbox" editable="true" width="80px"/>
                 </treecols>
             </tree>
         </groupbox>
