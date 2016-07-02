@@ -100,7 +100,7 @@ var SearchButtonsBar = {
             engineButton.setAttribute("tooltiptext", engine.description);
             engineButton.addEventListener("command", SearchButtonsBar.submitSearch);
             engineButton.addEventListener("click", onMiddleClick);
-            engineButton.setAttribute("image", engine.iconURI.spec);
+            engineButton.setAttribute("image", (engine.iconURI ? engine.iconURI.spec : "chrome://searchbuttonsbar/skin/file-empty.svg"));
             enginesContainer.appendChild(engineButton);
         }
 
