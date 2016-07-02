@@ -55,7 +55,7 @@ EngineView.prototype = {
     getImageSrc: function(index, column) {
         if (column.id == "engineName") {
             let engine = this.engines[index];
-            return (engine.iconURI ? engine.iconURI.spec : "chrome://searchbuttonsbar/skin/file-empty.svg");
+            return (engine.iconURI ? engine.iconURI.spec : "chrome://searchbuttonsbar/skin/search-engine-placeholder.png");
         }
         return "";
     },
