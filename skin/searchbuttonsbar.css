@@ -3,6 +3,7 @@
 }
 .searchbuttonsbar-splitter {
     opacity: 0;
+    min-height: 18px;
 }
 #SearchButtonsBar .searchbar-textbox {
     -moz-appearance: textfield;

@@ -141,7 +141,7 @@ var SearchButtonsBar = {
             return;
         let createSplitter = function() {
             let splitter = document.createElement("splitter");
-            splitter.setAttribute("resizebefore", "flex");
+            splitter.setAttribute("resizebefore", "closest");
             splitter.setAttribute("resizeafter", "flex");
             splitter.setAttribute("skipintoolbarset", "true");
             splitter.setAttribute("class", "chromeclass-toolbar-additional searchbuttonsbar-splitter");
@@ -175,6 +175,8 @@ var SearchButtonsBar = {
         if (searchbar._popup) {
             searchbar._popup.appendChild(menuitem);
         }
+        // remove flex to allow resizing by pixels
+        searchContainer.removeAttribute("flex");
     },
 
     init: function() {
