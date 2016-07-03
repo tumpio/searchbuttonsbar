@@ -8,36 +8,59 @@
 #SearchButtonsBar .searchbar-textbox {
     -moz-appearance: textfield;
 }
-#SearchButtonsBar .toolbarbutton-icon {
+#SearchButtonsBar .searchbuttonsbar-enginebutton .toolbarbutton-icon {
     max-height: 18px;
     height: 100%;
     width: auto;
+    min-width: 16px;
 }
 
 /* Limit max text lenght */
-#searchbuttonsbar-engines-container toolbarbutton {
+#searchbuttonsbar-engines-container .searchbuttonsbar-enginebutton {
     max-width: 14em;
+}
+
+/* Hidden engines */
+#searchbuttonsbar-engines-container .searchbuttonsbar-enginebutton.hidden {
+    display: none;
+}
+
+/* Overflow menu button */
+#searchbuttons-overflow-button {
+    -moz-box-ordinal-group: 2;
+    padding: 0;
+    line-height: 0;
+}
+#searchbuttonsbar-engines-container:not([overflows]) #searchbuttons-overflow-button {
+    display: none;
+}
+#searchbuttons-overflow-button .toolbarbutton-text {
+    display: inherit;
+    padding-right: 6px;
+}
+#searchbuttons-overflow-button .toolbarbutton-menu-dropmarker {
+    display: none;
 }
 
 /* Display modes */
 /* Icons */
-#searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-text {
+#searchbuttonsbar-engines-container[mode="icons"] > .searchbuttonsbar-enginebutton > .toolbarbutton-text {
     display: none;
 }
-#searchbuttonsbar-engines-container[mode="icons"] > toolbarbutton > .toolbarbutton-icon {
+#searchbuttonsbar-engines-container[mode="icons"] > .searchbuttonsbar-enginebutton > .toolbarbutton-icon {
     display: inherit;
 }
 /* Text */
-#searchbuttonsbar-engines-container[mode="text"] > toolbarbutton > .toolbarbutton-text {
+#searchbuttonsbar-engines-container[mode="text"] > .searchbuttonsbar-enginebutton > .toolbarbutton-text {
     display: inherit;
 }
-#searchbuttonsbar-engines-container[mode="text"] > toolbarbutton > .toolbarbutton-icon {
+#searchbuttonsbar-engines-container[mode="text"] > .searchbuttonsbar-enginebutton > .toolbarbutton-icon {
     display: none;
 }
 /* Full */
-#searchbuttonsbar-engines-container[mode="full"] > toolbarbutton > .toolbarbutton-text {
+#searchbuttonsbar-engines-container[mode="full"] > .searchbuttonsbar-enginebutton > .toolbarbutton-text {
     display: inherit;
 }
-#searchbuttonsbar-engines-container[mode="full"] > toolbarbutton > .toolbarbutton-icon {
+#searchbuttonsbar-engines-container[mode="full"] > .searchbuttonsbar-enginebutton > .toolbarbutton-icon {
     display: inherit;
 }
