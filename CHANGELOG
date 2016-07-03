@@ -1,4 +1,10 @@
-Search Buttons Bar v1.1.1 (released 2016-06-07)
+Search Buttons Bar v1.2 (released 2016-07-03)
+- Add overflow support for search buttons
+- Add a limit for the maximum width of search button
+- Fix scroll bar hiding the select buttons in the options dialog
+- Fix search buttons container over sizing
+- Fix bug with currentset persististing on Firefox
+- Fix bug with empty search engine icons
 - Fix search bar initialization on addon first run with defaultset.
 - Fix search bar restoring on addon uninstall with defaultset.
 Search Buttons Bar v1.1 (released 2016-06-06)

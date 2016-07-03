@@ -6,7 +6,7 @@
         <em:id>searchbuttonsbar@jumba-forum.palemoon.org</em:id>
         <em:name>Search Buttons Bar</em:name>
         <em:description>A search engine toolbar with one-click search.</em:description>
-        <em:version>1.1.1</em:version>
+        <em:version>1.2</em:version>
         <em:creator>tumpio</em:creator>
         <em:translator></em:translator>
         <em:homepageURL>https://github.com/tumpio/searchbuttonsbar</em:homepageURL>
@@ -28,7 +28,7 @@
             <Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>4.0</em:minVersion>
-                <em:maxVersion>48.*</em:maxVersion>
+                <em:maxVersion>49.*</em:maxVersion>
             </Description>
         </em:targetApplication>
 
