@@ -12,6 +12,7 @@
         <em:homepageURL>https://github.com/tumpio/searchbuttonsbar</em:homepageURL>
         <em:optionsURL>chrome://searchbuttonsbar/content/options.xul</em:optionsURL>
         <em:optionsType>1</em:optionsType>
+        <em:multiprocessCompatible>true</em:multiprocessCompatible>
         <em:type>2</em:type>
 
         <!-- Pale Moon -->
@@ -52,6 +53,7 @@
 
         <!-- Contributors -->
         <em:contributor>Brandon Carter</em:contributor>
+        <em:contributor>James Davis</em:contributor>
 
     </Description>
 </RDF>
