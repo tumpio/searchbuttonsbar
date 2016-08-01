@@ -8,7 +8,7 @@
 #SearchButtonsBar .searchbar-textbox {
     -moz-appearance: textfield;
 }
-#SearchButtonsBar .searchbuttonsbar-enginebutton .toolbarbutton-icon {
+.searchbuttonsbar-enginebutton .toolbarbutton-icon {
     max-height: 18px;
     height: 100%;
     width: auto;
