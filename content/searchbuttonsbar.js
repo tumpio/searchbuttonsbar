@@ -90,6 +90,9 @@ var SearchButtonsBar = {
 
     updateSearchEngines: function() {
         let enginesContainer = document.getElementById("searchbuttonsbar-engines-container");
+        if (!enginesContainer) {
+            return;
+        }
         let searchEngines = SearchButtonsBar.searchService.getVisibleEngines();
         let hiddenEngines = SearchButtonsBar.prefs.getCharPref("hidden").split(",").reduce(function(map, engine) {
             map[engine] = true;
@@ -183,6 +186,9 @@ var SearchButtonsBar = {
 
     addOverflowSupport: function() {
         let enginesContainer = document.getElementById("searchbuttonsbar-engines-container");
+        if (!enginesContainer) {
+            return;
+        }
         let overflowMenu = document.getElementById("searchbuttons-overflow-menu-popup");
         let parentToolbar = findParentByType(enginesContainer, "toolbar");
         let contentWidth = getChildNodesWidth(parentToolbar);
@@ -248,7 +254,16 @@ var SearchButtonsBar = {
         }
 
         // Initialize search toolbar
-        SearchButtonsBar.searchService.init(SearchButtonsBar.updateSearchEngines);
+        // If enginesContainer is not present wait for customizationchange event
+        let enginesContainer = document.getElementById("searchbuttonsbar-engines-container");
+        if (enginesContainer) {
+            SearchButtonsBar.searchService.init(SearchButtonsBar.updateSearchEngines);
+        } else {
+            window.addEventListener("customizationchange", function() {
+                window.removeEventListener("customizationchange", arguments.callee);
+                SearchButtonsBar.searchService.init(SearchButtonsBar.updateSearchEngines);
+            });
+        }
         SearchButtonsBar.makeSearchContainerResizable();
 
         // Add observer for search engine modified topic

@@ -24,7 +24,7 @@
             align="center"
             hidden="false"
             persist="hidden">
-            <toolbaritem id="searchbuttonsbar-engines-container" flex="1" removable="true"/>
+            <toolbaritem title="Search Buttons Bar" id="searchbuttonsbar-engines-container" flex="1" removable="true"/>
         </toolbar>
     </toolbox>
 </overlay>

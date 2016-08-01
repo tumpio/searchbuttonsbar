@@ -64,3 +64,14 @@
 #searchbuttonsbar-engines-container[mode="full"] > .searchbuttonsbar-enginebutton > .toolbarbutton-icon {
     display: inherit;
 }
+
+/* Customize view display */
+.customization-palette .searchbuttonsbar-enginebutton {
+    display: none;
+}
+.customization-palette #searchbuttonsbar-engines-container {
+    background-image: url("chrome://searchbuttonsbar/skin/icon.png");
+    background-repeat: no-repeat;
+    background-size: 100px auto;
+    background-position: center center;
+}

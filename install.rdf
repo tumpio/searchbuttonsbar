@@ -10,6 +10,7 @@
         <em:creator>tumpio</em:creator>
         <em:translator></em:translator>
         <em:homepageURL>https://github.com/tumpio/searchbuttonsbar</em:homepageURL>
+        <em:iconURL>chrome://searchbuttonsbar/skin/icon.png</em:iconURL>
         <em:optionsURL>chrome://searchbuttonsbar/content/options.xul</em:optionsURL>
         <em:optionsType>1</em:optionsType>
         <em:multiprocessCompatible>true</em:multiprocessCompatible>
