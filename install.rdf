@@ -3,10 +3,10 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
     <Description about="urn:mozilla:install-manifest">
-        <em:id>searchbuttonsbar@jumba-forum.palemoon.org</em:id>
+        <em:id>searchbuttonsbar@tumpio-post.com</em:id>
         <em:name>Search Buttons Bar</em:name>
         <em:description>A search engine toolbar with one-click search.</em:description>
-        <em:version>1.2.1</em:version>
+        <em:version>1.2.2</em:version>
         <em:creator>tumpio</em:creator>
         <em:translator></em:translator>
         <em:homepageURL>https://github.com/tumpio/searchbuttonsbar</em:homepageURL>
@@ -40,7 +40,7 @@
                 <em:locale>en-US</em:locale>
                 <em:name>Search Buttons Bar</em:name>
                 <em:description>A search engine toolbar with one-click search.</em:description>
-                <em:translator>jumba@forum.palemoon.org</em:translator>
+                <em:translator>tumpio</em:translator>
             </Description>
         </em:localized>
         <em:localized>
@@ -48,7 +48,7 @@
                 <em:locale>fi</em:locale>
                 <em:name>Search Buttons Bar</em:name>
                 <em:description>Hakukonetyökalupalkki yhden klikkauksen hakuihin.</em:description>
-                <em:translator>jumba@forum.palemoon.org</em:translator>
+                <em:translator>tumpio</em:translator>
             </Description>
         </em:localized>
         <em:localized>
