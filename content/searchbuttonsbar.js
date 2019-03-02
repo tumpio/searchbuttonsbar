@@ -306,12 +306,12 @@ var SearchButtonsBar = {
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
         AddonManager.addAddonListener({
             onUninstalling: function(addon, needsRestart) {
-                if (addon.id == "searchbuttonsbar@jumba-forum.palemoon.org") {
+                if (addon.id == "searchbuttonsbar@tumpio-post.com") {
                     uninstallObserver.register();
                 }
             },
             onOperationCancelled: function(addon, needsRestart) {
-                if (addon.id == "searchbuttonsbar@jumba-forum.palemoon.org") {
+                if (addon.id == "searchbuttonsbar@tumpio-post.com") {
                     uninstallObserver.unregister();
                 }
             }
