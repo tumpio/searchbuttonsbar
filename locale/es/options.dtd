@@ -1,0 +1,12 @@
+<!ENTITY title "Opciones de Search Buttons Bar">
+<!ENTITY searchbuttons.caption "Configuración de botones de búsqueda">
+<!ENTITY pref.mode.label "Mostrar:">
+<!ENTITY pref.mode.full "Iconos y texto">
+<!ENTITY pref.mode.icons "Iconos">
+<!ENTITY pref.mode.text "Texto">
+<!ENTITY pref.openInNewTab "Abrir búsqueda en una nueva pestaña">
+<!ENTITY pref.loadInBackground "Abrir nueva pestaña en segundo plano">
+<!ENTITY pref.nextToCurrent "Abrir nueva pestaña junto a la pestaña actual">
+<!ENTITY pref.hide.caption "Seleccionar botones de búsqueda">
+<!ENTITY engine.name "Botón de búsqueda">
+<!ENTITY engine.show "Mostrar">

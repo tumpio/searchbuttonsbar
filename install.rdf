@@ -51,6 +51,14 @@
                 <em:translator>jumba@forum.palemoon.org</em:translator>
             </Description>
         </em:localized>
+        <em:localized>
+            <Description>
+                <em:locale>es</em:locale>
+                <em:name>Search Buttons Bar</em:name>
+                <em:description>Una barra de herramientas de motores de búsqueda, con búsqueda en un-clic.</em:description>
+                <em:translator>strel</em:translator>
+            </Description>
+        </em:localized>
 
         <!-- Contributors -->
         <em:contributor>Brandon Carter</em:contributor>
