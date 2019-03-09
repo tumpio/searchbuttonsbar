@@ -1,17 +1,14 @@
 # Search Buttons Bar
-A XUL addon for Firefox and Pale Moon browsers.
 
-## Features:
-- A search toolbar with one-click search. Type in the search box and click a search engine button. Hitting enter key will make a search with currently selected search engine.
-- The search engine buttons are clickable links to the site's home page when there are no search words typed in the search box.
-- Managing the search engines can be done with the Pale Moon's search engine manager.
-- The search toolbar is customizable which allows to add and remove toolbar items.
-- Option to select which engines are displayed in the toolbar.
+A search toolbar with one-click search.
 
-## Notes
-If you like my work, please consider to contribute. Thank you!
+Type in the search box and click a search engine button. Hitting the enter key will make a search with the currently selected search engine. The search engine buttons are clickable links to the site's home page when there are no search words typed in the search box.
 
-tumpio [tumpio at sci.fi]
+### Additional features:
+
+- Control the search engines in the search engine manager.
+- Customize the search toolbar in customize view.
+- Option to select which search engines are displayed in the toolbar.
 
 ## Licence
     This program is free software: you can redistribute it and/or modify
